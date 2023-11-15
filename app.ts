@@ -7,7 +7,12 @@ addButton?.addEventListener("click", () => {
   const num1 = num1Element.value;
   const num2 = num2Element.value;
   console.log(add(+num1, +num2));
+  console.log(add(num1, num2));
 });
-function add(num1: number, num2: number) {
-  return num1 + num2;
+function add(num1: number | string, num2: number | string) {
+  if (typeof num1 === "number" && typeof num2 === "number") {
+    return num1 + num2;
+  } else if (typeof num1 === "string" && typeof num2 === "string") {
+    return num1 + " " + num2;
+  }
 }
